@@ -1,6 +1,5 @@
 from pynput.mouse import Button, Controller as mousecontrol
-from pynput.keyboard import Key, Listener, Controller
-import subprocess
+from pynput.keyboard import Key, Controller
 import time
 from colored import Fore, Back, Style
 
@@ -20,16 +19,22 @@ titulo = (rf""" {Fore.red}
 \____/\____/_/  / .___/ 
                /_/     
 
-{Style.reset}Framework de Assistência ao Suporte Técnico Corporativo """)
+{Style.reset}Framework de Assistência ao Suporte Técnico Corporativo 
 
+Documentação (https://gustavo-hetrich.notion.site/Documenta-o-FAST-CORP-d61517440bb94fa090bdf45d78b2a2cf)""")
+
+# Looping para toda vez que ele completar a ação, retornar para a tela de título
 while True:
     print(titulo)
-    inicio = input(f'\n Quer iniciar a configuração? \n (1) Checklist \n (2) Limpar Temps \n Favor digitar uma das opções \n \n')
+    ação = input(f'\n Quer iniciar a configuração? \n (1) Checklist \n (2) Baixar Programas \n (3) Limpar Temps \n Favor escolher uma das ações \n \n') # o \n é usado para quebrar uma linha
 
+# Para criar uma nova ação, utilize a variável inicio, fazendo sempre if ação == 'numero':
 
     # Checklist
-    if inicio == '1':
+    if ação == '1':
         modelo = input(f'\n Qual seria o modelo do notebook? \n (1)Acer (2)Outro (3...)Voltar \n Favor digitar uma das opções \n \n')
+        print('favor fechar todas as janelas antes da inicialização')
+        time.sleep(5)
         # Acer
         if modelo == '1':
             print('Iniciando configuração do Acer')
@@ -70,7 +75,7 @@ while True:
             keyboard.release('r')
             time.sleep(1)
             keyboard.tap(Key.backspace)
-            keyboard.type('Y:\SUPORTE TECNICO\Corporativo\Macros\Bot Format\Ativador Admin')
+            keyboard.type('Y:\SUPORTE TECNICO\FastCorp\Ativador Admin')
             time.sleep(0.5)
             keyboard.press(Key.ctrl)
             keyboard.press(Key.shift)
@@ -88,7 +93,7 @@ while True:
             keyboard.release('r')
             time.sleep(2)
             keyboard.tap(Key.backspace)
-            keyboard.type('Y:\SUPORTE TECNICO\Corporativo\Macros\Bot Format\Rede\executar')
+            keyboard.type('Y:\SUPORTE TECNICO\FastCorp\Rede\executar')
             time.sleep(2)
             keyboard.tap(Key.enter)
             time.sleep(0.5)
@@ -135,7 +140,7 @@ while True:
             keyboard.release('r')
             time.sleep(4)
             keyboard.tap(Key.backspace)
-            keyboard.type('Y:\SUPORTE TECNICO\Corporativo\Macros\Bot Format\Ativador Admin')
+            keyboard.type('Y:\SUPORTE TECNICO\FastCorpt\Ativador Admin')
             time.sleep(2)
             keyboard.press(Key.ctrl)
             keyboard.press(Key.shift)
@@ -153,13 +158,28 @@ while True:
             keyboard.release('r')
             time.sleep(4)
             keyboard.tap(Key.backspace)
-            keyboard.type('Y:\SUPORTE TECNICO\Corporativo\Macros\Bot Format\Rede\executar')
+            keyboard.type('Y:\SUPORTE TECNICO\FastCorp\Rede\executar')
             time.sleep(4)
             keyboard.tap(Key.enter)
             print('\n Checklist Concluido')
 
+    if ação == '2':
+        # Instalação Cortex, Global, Netskope
+        print('\n Instalando Programas...')
+        keyboard.press(Key.cmd)
+        keyboard.press('r')
+        time.sleep(0.5)
+        keyboard.release(Key.cmd)
+        keyboard.release('r')
+        time.sleep(1)
+        keyboard.tap(Key.backspace)
+        keyboard.type('Y:\SUPORTE TECNICO\FastCorp\Rede\executar')
+        time.sleep(1)
+        keyboard.tap(Key.enter)
+        print('\n Programas Instalados')
+
     #Limpar Temps
-    if inicio == '2':
+    if ação == '3':
         print('\nLimpando Temps...')
         keyboard.press(Key.cmd)
         keyboard.press('r')
@@ -169,7 +189,7 @@ while True:
         time.sleep(2)
         keyboard.tap(Key.backspace)
         # https://stackoverflow.com/questions/10716803/batch-file-to-perform-start-run-temp-and-delete-all - fonte do Bat
-        keyboard.type('Y:\SUPORTE TECNICO\Corporativo\Macros\Bot Format\Clear.bat')
+        keyboard.type('Y:\SUPORTE TECNICO\FastCorp\Clear.bat')
         time.sleep(2)
         keyboard.press(Key.ctrl)
         keyboard.press(Key.shift)
@@ -178,6 +198,7 @@ while True:
         keyboard.release(Key.shift)
         keyboard.release(Key.enter)
         print('\nTemps limpas')
-
+    else:
+        print('\n Favor insirir uma das opções')
     print('\n')     
     print('-' * 50)
