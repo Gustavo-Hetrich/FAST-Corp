@@ -3,7 +3,7 @@ echo Rodando script de instalação de programas...
 echo.
 
 REM Definir o caminho completo para o script PowerShell
-set "script_ps1=Y:\SUPORTE TECNICO\Corporativo\Macros\Bot Format\Rede"
+set "script_ps1=Y:\SUPORTE TECNICO\FastCorp\Rede\programas.ps1"
 
 REM Verificar se o script PowerShell existe
 if not exist "%script_ps1%" (
