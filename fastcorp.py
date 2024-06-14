@@ -140,7 +140,7 @@ while True:
             keyboard.release('r')
             time.sleep(4)
             keyboard.tap(Key.backspace)
-            keyboard.type('Y:\SUPORTE TECNICO\FastCorpt\Ativador Admin')
+            keyboard.type('Y:\SUPORTE TECNICO\FastCorp\Ativador Admin')
             time.sleep(2)
             keyboard.press(Key.ctrl)
             keyboard.press(Key.shift)
